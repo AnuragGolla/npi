@@ -29,11 +29,11 @@ def train_addition(epochs, verbose=0):
         data = pickle.load(f)
 
     # Initialize Addition Core
-    print 'Initializing Addition Core!'
+    print ('Initializing Addition Core!')
     core = AdditionCore()
 
     # Initialize NPI Model
-    print 'Initializing NPI Model!'
+    print ('Initializing NPI Model!')
     npi = NPI(core, CONFIG, LOG_PATH, verbose=verbose)
 
     # Initialize TF Saver
@@ -95,12 +95,12 @@ def train_addition(epochs, verbose=0):
                     term_acc += t_acc
                     prog_acc += p_acc
 
-            print "Epoch {0:02d} Step {1:03d} Default Step Loss {2:05f}, " \
+            print ("Epoch {0:02d} Step {1:03d} Default Step Loss {2:05f}, " \
                   "Argument Step Loss {3:05f}, Term: {4:03f}, Prog: {5:03f}, A0: {6:03f}, " \
                   "A1: {7:03f}, A2: {8:03}"\
                 .format(ep, i, step_def_loss / len(x), step_arg_loss / len(x), term_acc / len(x),
                         prog_acc / len(x), arg0_acc / num_args, arg1_acc / num_args,
-                        arg2_acc / num_args)
+                        arg2_acc / num_args))
 
         # Save Model
         saver.save(sess, 'tasks/addition/log/model.ckpt')

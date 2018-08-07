@@ -88,12 +88,12 @@ class ScratchPad():           # Addition Environment
     def pretty_print(self):
         new_strs = ["".join(map(str, self[i])) for i in range(4)]
         line_length = len('Input 1:' + " " * 5 + new_strs[0])
-        print 'Input 1:' + " " * 5 + new_strs[0]
-        print 'Input 2:' + " " * 5 + new_strs[1]
-        print 'Carry  :' + " " * 5 + new_strs[2]
-        print '-' * line_length
-        print 'Output :' + " " * 5 + new_strs[3]
-        print ''
+        print ('Input 1:' + " " * 5 + new_strs[0])
+        print ('Input 2:' + " " * 5 + new_strs[1])
+        print ('Carry  :' + " " * 5 + new_strs[2])
+        print ('-' * line_length)
+        print ('Output :' + " " * 5 + new_strs[3])
+        print ('')
         time.sleep(.1)
         sys.stdout.flush()
 
