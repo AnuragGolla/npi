@@ -124,12 +124,12 @@ class ScratchPad:           # Bubblesort Environment
     def pretty_print(self):
 
         print(self.scratchpad[0])
-        print("   " * self.ptr_1[1] + "*")
-        print("   " * self.ptr_2[1] + "*")
-        print("   " * self.ptr_counter[1] + "*")
+        print("  " * self.ptr_1[1] + "*")
+        print("  " * self.ptr_2[1] + "*")
+        print("  " * self.ptr_counter[1] + "*")
 
 
-        # time.sleep(0.03)
+        time.sleep(0.03)
         # sys.stdout.flush()
 
     def get_env(self): #####CHECK!!!

@@ -25,7 +25,7 @@ def train_addition(epochs, verbose=0):
     :param epochs: Number of epochs to train for.
     """
     # Load Data
-    with open(DATA_PATH, 'r') as f:
+    with open(DATA_PATH, 'rb') as f:
         data = pickle.load(f)
 
     # Initialize Addition Core
@@ -41,7 +41,7 @@ def train_addition(epochs, verbose=0):
 
     # Initialize TF Session
     sess = tf.Session()
-    sess.run(tf.initialize_all_variables())
+    sess.run(tf.global_variables_initializer())
 
     # Start Training
     for ep in range(1, epochs + 1):

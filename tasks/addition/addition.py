@@ -26,7 +26,7 @@ class AdditionCore():
         self.arg_in = tf.placeholder(tf.float32, shape=[self.bsz, self.arg_dim], name="Arg_Input")
 
         # Setup Program ID Input Layer
-        self.prg_in = tf.placeholder(tf.int32, shape=[self.bsz, 1], name='Program_ID')
+        self.prg_in = tf.placeholder(tf.int32, shape=[None, 1], name='Program_ID')
 
         # Build Environment Encoder Network (f_enc)
         self.state_encoding = self.build_encoder()

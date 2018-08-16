@@ -44,8 +44,8 @@ class ScratchPad():           # Addition Environment
         self.init_scratchpad(in1, in2)
 
         # Pointers initially all start at the right
-        self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr = self.ptrs = \
-            [(x, -1) for x in range(4)]
+        self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr = [(x, -1) for x in range(4)]
+        self.ptrs = [self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr]
 
     def init_scratchpad(self, in1, in2):
         """
@@ -55,35 +55,45 @@ class ScratchPad():           # Addition Environment
         for inpt in range(len(lst)):
             for i in range(1, len(lst[inpt]) + 1):
                 self.scratchpad[inpt, -i] = int(lst[inpt][-i])
+        # print(self.scratchpad)
 
     def done(self):
-        if self.in1_ptr[1] < -self.cols:
+        if self.out_ptr[1] <= -self.cols:
             return True
         else:
-            lst = [x[1] for x in self.ptrs]
-            if len(set(lst)) == 1:
-                return sum(sum([self[x[0], :min(x[1] + 1, -1)] for x in self.ptrs])) == 0
-            else:
-                return False
+            # lst = [x[1] for x in self.ptrs ]
+            # if len(set(lst)) == 1:
+            #     return sum(sum([self[x[0], :min(x[1] + 1, -1)] for x in self.ptrs])) == 0
+            # else:
+            #     return False
+            return False
 
     def add1(self):
         temp = self[self.in1_ptr] + self[self.in2_ptr] + self[self.carry_ptr]
-        return temp % 10, temp / 10
+        return temp % 10, temp // 10
 
     def write_carry(self, carry_val, debug=False):
         carry_row, carry_col = self.carry_ptr
         self[(carry_row, carry_col - 1)] = carry_val
+
+        # self.pretty_print()
+
         if debug:
             self.pretty_print()
 
     def write_out(self, value, debug=False):
         self[self.out_ptr] = value
+
+        # self.pretty_print()
+
         if debug:
             self.pretty_print()
 
     def lshift(self):
-        self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr = self.ptrs = \
-            [(x, y - 1) for (x, y) in self.ptrs]
+        self.ptrs = [self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr]
+        self.in1_ptr, self.in2_ptr, self.carry_ptr, self.out_ptr = [(x, y - 1) for (x, y) in self.ptrs]
+
+        # self.pretty_print()
 
     def pretty_print(self):
         new_strs = ["".join(map(str, self[i])) for i in range(4)]

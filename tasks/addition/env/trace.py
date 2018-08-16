@@ -44,7 +44,9 @@ class Trace():
             self.lshift()
 
     def add1(self):
+        # print("ADD1")
         # Call Add1 Subroutine
+
         self.trace.append(( (ADD1, P[ADD1]), [], False ))
         out, carry = self.scratch.add1()
 
@@ -57,7 +59,9 @@ class Trace():
             self.carry(carry)
 
     def carry(self, carry_val):
+        # print("CARRY")
         # Call Carry Subroutine
+
         self.trace.append(( (CARRY, P[CARRY]), [], False ))
 
         # Shift Carry Pointer Left
@@ -73,7 +77,9 @@ class Trace():
         self.scratch.write_carry(carry_val, self.debug)
 
     def lshift(self):
+        # print("LSHIFT")
         # Perform LShift Logic on Scratchpad
+
         self.scratch.lshift()
 
         # Move Inp1 Pointer Left

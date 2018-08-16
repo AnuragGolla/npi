@@ -12,7 +12,7 @@ import numpy as np
 from tasks.addition.env.trace import Trace
 
 
-def generate_addition(prefix, num_examples, debug=False, maximum=10000000000, debug_every=1000):
+def generate_addition(prefix, num_examples, debug=False, maximum=1000000000, debug_every=1000):
     """
     Generates addition data with the given string prefix (i.e. 'train', 'test') and the specified
     number of examples.
