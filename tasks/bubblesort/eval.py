@@ -80,7 +80,7 @@ def repl(session, npi, data):
 
             a_str = str(arg)
 
-            print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(term)))
+            # print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(term)))
             # print ('IN ARRAY: %s, PTR 1: %s, PTR 2: %s, PTR COUNTER: %s' % (scratch[0],
             #                                                   scratch.ptr_1[1],
             #                                                   scratch.ptr_2[1],
@@ -103,7 +103,7 @@ def repl(session, npi, data):
 
 
             if np.argmax(t) == 1:
-                print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(True)))
+                # print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(True)))
                 # print('IN ARRAY: %s, PTR 1: %s, PTR 2: %s, PTR COUNTER: %s' % (scratch[1],
                 #                                                                scratch.ptr_1[1],
                 #                                                                scratch.ptr_2[1],
@@ -128,7 +128,7 @@ def repl(session, npi, data):
                 prog_name = PROGRAM_SET[prog_id][0]
 
                 print(prog_name)
-                
+
                 # print("N_ARGS", n_args)
                 if prog_id == MOVE_PTR_PID or prog_id == SWAP_ELEM_PID:
                     arg = [np.argmax(n_args[0]), np.argmax(n_args[1]), np.argmax(n_args[2])]
