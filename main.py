@@ -25,8 +25,8 @@ from tasks.multiplication.train import train_multiplication
 FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_string("task", "bubblesort", "Which NPI Task to run.")
 tf.app.flags.DEFINE_boolean("generate", True, "Boolean whether to generate training/test data.")
-tf.app.flags.DEFINE_integer("num_training", 5, "Number of training examples to generate.")
-tf.app.flags.DEFINE_integer("num_test", 1, "Number of test examples to generate.")
+tf.app.flags.DEFINE_integer("num_training", 100, "Number of training examples to generate.")
+tf.app.flags.DEFINE_integer("num_test", 10, "Number of test examples to generate.")
 
 tf.app.flags.DEFINE_boolean("do_train", True, "Boolean whether to continue training model.")
 tf.app.flags.DEFINE_boolean("do_eval", False, "Boolean whether to perform model evaluation.")

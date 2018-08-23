@@ -181,7 +181,7 @@ class ScratchPad:           # Bubblesort Environment
                 self.scratchpad[0][self.ptr_2[1]], self.scratchpad[0][self.ptr_1[1]]
 
 
-        self.pretty_print()
+        # self.pretty_print()
 
 
 

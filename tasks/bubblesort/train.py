@@ -53,7 +53,7 @@ def train_bubblesort(epochs, verbose=0):
     # Start Training
     for ep in range(1, epochs + 1):
         for i in range(len(data)):
-            print("DATA ENTRY #", i+1, "----------------------------------------------------------------------")
+            # print("DATA ENTRY #", i+1, "----------------------------------------------------------------------")
             # Reset NPI States
             npi.reset_state()
 
