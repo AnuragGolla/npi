@@ -80,7 +80,7 @@ def repl(session, npi, data):
 
             a_str = str(arg)
 
-            # print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(term)))
+            print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(term)))
             # print ('IN ARRAY: %s, PTR 1: %s, PTR 2: %s, PTR COUNTER: %s' % (scratch[0],
             #                                                   scratch.ptr_1[1],
             #                                                   scratch.ptr_2[1],
@@ -103,8 +103,8 @@ def repl(session, npi, data):
 
 
             if np.argmax(t) == 1:
-                # print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(True)))
-                # print('IN ARRAY: %s, PTR 1: %s, PTR 2: %s, PTR COUNTER: %s' % (scratch[1],
+                print ('Step: %s, Arguments: %s, Terminate: %s' % (prog_name, a_str, str(True)))
+                # print('IN ARRAY: %s, PTR 1: %s, PTR 2: %s, PTR COUNTER: %s' % (scratch[0],
                 #                                                                scratch.ptr_1[1],
                 #                                                                scratch.ptr_2[1],
                 #                                                                scratch.ptr_counter[1]))
