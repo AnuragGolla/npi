@@ -13,7 +13,7 @@ from tasks.bubblesort.env.trace import Trace
 from tasks.bubblesort.env.config import CONFIG
 
 
-def generate_bubblesort(prefix, num_examples, debug=False, maximum=10000000000, debug_every=100,
+def generate_bubblesort(prefix, curriculum_size, debug=False, maximum=10000000000, debug_every=10,
                         elem_size=CONFIG["ENVIRONMENT_DEPTH"], array_len=CONFIG["ENVIRONMENT_COL"]):
 
     """
@@ -26,7 +26,7 @@ def generate_bubblesort(prefix, num_examples, debug=False, maximum=10000000000, 
     """
 
     data = []
-    for i in range(num_examples):
+    for i in range(curriculum_size):
         in_arr = np.zeros(array_len, dtype=np.int)
         for j in range(array_len):
             in_arr[j] = np.random.randint(elem_size)
@@ -36,6 +36,24 @@ def generate_bubblesort(prefix, num_examples, debug=False, maximum=10000000000, 
         else:
             trace = Trace(in_arr).trace
         data.append(( in_arr, trace ))
+
+
+
+
+    # class_size = curriculum_size // array_len
+    # data = []
+    # for i in range(1, array_len+1):
+    #     for j in range(class_size):
+    #         in_arr = np.zeros(i, dtype=np.int)
+    #         for k in range(array_len):
+    #             in_arr[k] = np.random.randint(elem_size)
+    #
+    #         if debug and j % debug_every == 0:
+    #             trace = Trace(in_arr, True).trace
+    #         else:
+    #             trace = Trace(in_arr).trace
+    #         data.append((in_arr, trace))
+
 
     with open('tasks/bubblesort/data/{}.pik'.format(prefix), 'wb') as f:
         pickle.dump(data, f)
