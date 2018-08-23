@@ -45,7 +45,7 @@ def generate_bubblesort(prefix, curriculum_size, debug=False, maximum=1000000000
     for i in range(1, array_len+1):
         for j in range(class_size):
             in_arr = np.zeros(i, dtype=np.int)
-            for k in range(array_len):
+            for k in range(len(in_arr)):
                 in_arr[k] = np.random.randint(elem_size)
 
             if debug and j % debug_every == 0:
