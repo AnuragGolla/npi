@@ -70,9 +70,9 @@ def train_bubblesort(epochs, verbose=0):
                 (prog_name, prog_in_id), arg, term = x[j]
                 (_, prog_out_id), arg_out, term_out = y[j]
 
-                print("IN:  ", x[j])
-                print("OUT: ", y[j])
-                print("----------------------------------------")
+                # print("IN:  ", x[j])
+                # print("OUT: ", y[j])
+                # print("----------------------------------------")
 
                 # Update Environment if MOVE or WRITE
                 if prog_in_id == MOVE_PTR_PID or prog_in_id == SWAP_ELEM_PID:

@@ -90,7 +90,7 @@ class ScratchPad:           # Bubblesort Environment
         if args[0] == 0:
             print("Error: Direction applied to array")
         elif args[0] == 1:
-            self.ptr_1 = (self.ptr_1[0], self.ptr_1[1] + 2 * args[2] - 1 )
+            self.ptr_1 = (self.ptr_1[0], self.ptr_1[1] + 2 * args[1] - 1 )
 
             if self.ptr_1[1] < 0:
                 self.ptr_1 = (self.ptr_1[0], 0)
@@ -98,7 +98,7 @@ class ScratchPad:           # Bubblesort Environment
                 self.ptr_1 = (self.ptr_1[0], self.cols - 1)
 
         elif args[0] == 2:
-            self.ptr_2 = (self.ptr_2[0], self.ptr_2[1] + 2 * args[2] - 1  )
+            self.ptr_2 = (self.ptr_2[0], self.ptr_2[1] + 2 * args[1] - 1  )
 
             if self.ptr_2[1] < 0:
                 self.ptr_2 = (self.ptr_2[0], 0)
@@ -106,7 +106,7 @@ class ScratchPad:           # Bubblesort Environment
                 self.ptr_2 = (self.ptr_2[0], self.cols - 1)
 
         elif args[0] == 3:
-            self.ptr_counter = (self.ptr_counter[0], self.ptr_counter[1] + 2 * args[2] - 1  )
+            self.ptr_counter = (self.ptr_counter[0], self.ptr_counter[1] + 2 * args[1] - 1  )
 
             if self.ptr_counter[1] < 0:
                 self.ptr_counter = (self.ptr_counter[0], 0)
@@ -147,11 +147,11 @@ class ScratchPad:           # Bubblesort Environment
             if args[0] == 0:
                 print("Error: Trying to move ptr on array")
             elif args[0] == 1:
-                self.ptr_1 = (self.ptr_1[0], self.ptr_1[1] + 2 * args[2] - 1  )
+                self.ptr_1 = (self.ptr_1[0], self.ptr_1[1] + 2 * args[1] - 1  )
             elif args[0] == 2:
-                self.ptr_2 = (self.ptr_2[0], self.ptr_2[1] + 2 * args[2] - 1  )
+                self.ptr_2 = (self.ptr_2[0], self.ptr_2[1] + 2 * args[1] - 1  )
             elif args[0] == 3:
-                self.ptr_counter = (self.ptr_counter[0], self.ptr_counter[1] + 2 * args[2] - 1  )
+                self.ptr_counter = (self.ptr_counter[0], self.ptr_counter[1] + 2 * args[1] - 1  )
             else:
                 raise NotImplementedError
             self.ptrs = [self.in_array, self.ptr_1, self.ptr_2, self.ptr_counter]

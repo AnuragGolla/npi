@@ -42,7 +42,7 @@ class Trace:
         a subroutine doesn't take arguments, the empty list is returned.
         """
         # Seed with the starting subroutine call
-        self.trace.append(((BUBBLESORT, P[BUBBLESORT]), [None, None, None], False))
+        self.trace.append(((BUBBLESORT, P[BUBBLESORT]), [], False))
 
         # Execute Trace
 
@@ -54,10 +54,10 @@ class Trace:
     def bubble(self):
         # print("BUBBLE SUBROUTINE")
         # Call Bubble Subroutine
-        self.trace.append(( (BUBBLE, P[BUBBLE]), [None, None, None], False ))
+        self.trace.append(( (BUBBLE, P[BUBBLE]), [], False ))
 
-        self.trace.append((  (PTR, P[PTR]),  [PTR_2, None, RIGHT],  False))
-        self.scratch.ptr([PTR_2, None, RIGHT], debug=self.debug)
+        self.trace.append((  (PTR, P[PTR]),  [PTR_2, RIGHT],  False))
+        self.scratch.ptr([PTR_2, RIGHT], debug=self.debug)
 
         while self.scratch.ptr_1[1] < self.scratch.cols - 1:
             self.bstep()
@@ -66,7 +66,7 @@ class Trace:
     def bstep(self):
         # print("BTEP SUBROUTINE")
 
-        self.trace.append(((BSTEP, P[BSTEP]), [None, None, None], False))
+        self.trace.append(((BSTEP, P[BSTEP]), [], False))
 
         self.compswap()
         self.rshift()
@@ -75,10 +75,10 @@ class Trace:
     def compswap(self):
         # print("COMPSWAP SUBROUTINE")
 
-        self.trace.append((  (COMPSWAP, P[COMPSWAP]), [None, None, None], False))
+        self.trace.append((  (COMPSWAP, P[COMPSWAP]), [], False))
 
-        if self.scratch.swap([PTR_1, PTR_2, None], debug=self.debug):
-            self.trace.append((  (SWAP, P[SWAP]), [PTR_1, PTR_2, None], False))
+        if self.scratch.swap([PTR_1, PTR_2], debug=self.debug):
+            self.trace.append((  (SWAP, P[SWAP]), [PTR_1, PTR_2], False))
 
         else:
             pass ##CHECK
@@ -86,44 +86,44 @@ class Trace:
     def rshift(self):
         # print("RSHIFT SUBROUTINE")
 
-        self.trace.append((  (RSHIFT, P[RSHIFT]), [None, None, None], False))
+        self.trace.append((  (RSHIFT, P[RSHIFT]), [], False))
 
-        self.trace.append((  (PTR, P[PTR]), [PTR_1, None, RIGHT], False))
-        self.scratch.ptr([PTR_1, None, RIGHT], debug=self.debug)
+        self.trace.append((  (PTR, P[PTR]), [PTR_1, RIGHT], False))
+        self.scratch.ptr([PTR_1, RIGHT], debug=self.debug)
 
-        self.trace.append((  (PTR, P[PTR]), [PTR_2, None, RIGHT], False))
-        self.scratch.ptr([PTR_2, None, RIGHT], debug=self.debug)
+        self.trace.append((  (PTR, P[PTR]), [PTR_2, RIGHT], False))
+        self.scratch.ptr([PTR_2, RIGHT], debug=self.debug)
 
 
     def reset(self):
         # print("RESET SUBROUTINE")
 
-        self.trace.append((  (RESET, P[RESET]), [None, None, None], False))
+        self.trace.append((  (RESET, P[RESET]), [], False))
 
         while self.scratch.ptr_2[1] > 0:
             self.lshift()
 
         if self.scratch.done():
-            self.trace.append(((PTR, P[PTR]), [PTR_COUNTER, None, RIGHT], True))
-            self.scratch.ptr([PTR_COUNTER, None, RIGHT], debug=self.debug)
+            self.trace.append(((PTR, P[PTR]), [PTR_COUNTER, RIGHT], True))
+            self.scratch.ptr([PTR_COUNTER, RIGHT], debug=self.debug)
             self.traceDone = True
 
         else:
-            self.trace.append(((PTR, P[PTR]), [PTR_COUNTER, None, RIGHT], False))
-            self.scratch.ptr([PTR_COUNTER, None, RIGHT], debug=self.debug)
+            self.trace.append(((PTR, P[PTR]), [PTR_COUNTER, RIGHT], False))
+            self.scratch.ptr([PTR_COUNTER, RIGHT], debug=self.debug)
 
 
 
     def lshift(self):
         # print("LSHIFT SUBROUTINE")
 
-        self.trace.append(((LSHIFT, P[LSHIFT]), [None, None, None], False))
+        self.trace.append(((LSHIFT, P[LSHIFT]), [], False))
 
-        self.trace.append(((PTR, P[PTR]), [PTR_1, None, LEFT], False))
-        self.scratch.ptr([PTR_1, None, LEFT], debug=self.debug)
+        self.trace.append(((PTR, P[PTR]), [PTR_1, LEFT], False))
+        self.scratch.ptr([PTR_1, LEFT], debug=self.debug)
 
-        self.trace.append(((PTR, P[PTR]), [PTR_2, None, LEFT], False))
-        self.scratch.ptr([PTR_2, None, LEFT], debug=self.debug)
+        self.trace.append(((PTR, P[PTR]), [PTR_2, LEFT], False))
+        self.scratch.ptr([PTR_2, LEFT], debug=self.debug)
 
 
 
