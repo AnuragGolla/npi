@@ -129,12 +129,13 @@ class ScratchPad:           # Bubblesort Environment
         print("  " * self.ptr_counter[1] + "*")
 
 
-        time.sleep(0.03)
+        # time.sleep(0.03)
         # sys.stdout.flush()
 
     def get_env(self): #####CHECK!!!
-        env = np.zeros((CONFIG["ENVIRONMENT_ROW"], CONFIG["ENVIRONMENT_COL"]), dtype=np.int32)
+        env = np.zeros((self.rows, self.cols), dtype=np.int32)
 
+        env[0] = self.scratchpad[0]
         env[self.ptr_1] = 1
         env[self.ptr_2] = 1
         env[self.ptr_counter] = 1

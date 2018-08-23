@@ -31,6 +31,7 @@ class Trace:
         trace_ans = self.scratch[0]
 
         # print("TRUE: ", in_array, "  ==>  ", true_ans)
+        # print("DECISION: ", in_array, true_ans, trace_ans)
 
         for i in range(len(true_ans)):
             assert(true_ans[i] == trace_ans[i])
