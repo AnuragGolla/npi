@@ -24,35 +24,35 @@ def generate_bubblesort(prefix, curriculum_size, debug=False, maximum=1000000000
     :param num_examples: Number of examples to generate.
 
     """
-
-    data = []
-    for i in range(curriculum_size):
-        in_arr = np.zeros(array_len, dtype=np.int)
-        for j in range(array_len):
-            in_arr[j] = np.random.randint(elem_size)
-
-        if debug and i % debug_every == 0:
-            trace = Trace(in_arr, True).trace
-        else:
-            trace = Trace(in_arr).trace
-        data.append(( in_arr, trace ))
-
-
-
-
-    # class_size = curriculum_size // array_len
-    # data = []
-    # for i in range(1, array_len+1):
-    #     for j in range(class_size):
-    #         in_arr = np.zeros(i, dtype=np.int)
-    #         for k in range(array_len):
-    #             in_arr[k] = np.random.randint(elem_size)
     #
-    #         if debug and j % debug_every == 0:
-    #             trace = Trace(in_arr, True).trace
-    #         else:
-    #             trace = Trace(in_arr).trace
-    #         data.append((in_arr, trace))
+    # data = []
+    # for i in range(curriculum_size):
+    #     in_arr = np.zeros(array_len, dtype=np.int)
+    #     for j in range(array_len):
+    #         in_arr[j] = np.random.randint(elem_size)
+    #
+    #     if debug and i % debug_every == 0:
+    #         trace = Trace(in_arr, True).trace
+    #     else:
+    #         trace = Trace(in_arr).trace
+    #     data.append(( in_arr, trace ))
+
+
+
+
+    class_size = curriculum_size // array_len
+    data = []
+    for i in range(1, array_len+1):
+        for j in range(class_size):
+            in_arr = np.zeros(i, dtype=np.int)
+            for k in range(array_len):
+                in_arr[k] = np.random.randint(elem_size)
+
+            if debug and j % debug_every == 0:
+                trace = Trace(in_arr, True).trace
+            else:
+                trace = Trace(in_arr).trace
+            data.append((in_arr, trace))
 
 
     with open('tasks/bubblesort/data/{}.pik'.format(prefix), 'wb') as f:
