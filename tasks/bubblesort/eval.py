@@ -132,7 +132,7 @@ def repl(session, npi, data):
                     arg = [np.argmax(n_args[0]), np.argmax(n_args[1]), np.argmax(n_args[2])]
                     # print("ARG CHANGE: ", arg)
                 else:
-                    arg = [None, None, None]
+                    arg = []
                     # print("ARG NO CHANGE: ", arg)
                 term = False
 
