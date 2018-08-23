@@ -92,7 +92,7 @@ def repl(session, npi, data):
                 scratch.execute(prog_id, arg)
 
             # Print Environment
-            # scratch.pretty_print()
+            scratch.pretty_print()
 
             # Get Environment, Argument Vectors
             env_in, arg_in, prog_in = [scratch.get_env()], [get_args(arg, arg_in=True)], [[prog_id]]
@@ -115,7 +115,7 @@ def repl(session, npi, data):
                     scratch.execute(prog_id, arg)
 
                 # Print Environment
-                # scratch.pretty_print()
+                scratch.pretty_print()
 
 
                 output = scratch[0]
@@ -126,8 +126,6 @@ def repl(session, npi, data):
             else:
                 prog_id = np.argmax(n_p)
                 prog_name = PROGRAM_SET[prog_id][0]
-
-                print(prog_name)
 
                 # print("N_ARGS", n_args)
                 if prog_id == MOVE_PTR_PID or prog_id == SWAP_ELEM_PID:

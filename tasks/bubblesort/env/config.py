@@ -181,6 +181,10 @@ class ScratchPad:           # Bubblesort Environment
                 self.scratchpad[0][self.ptr_2[1]], self.scratchpad[0][self.ptr_1[1]]
 
 
+        self.pretty_print()
+
+
+
     def __getitem__(self, item):
         return self.scratchpad[item]
 

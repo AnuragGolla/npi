@@ -53,6 +53,7 @@ def train_bubblesort(epochs, verbose=0):
     # Start Training
     for ep in range(1, epochs + 1):
         for i in range(len(data)):
+            print("DATA ENTRY #", i+1, "----------------------------------------------------------------------")
             # Reset NPI States
             npi.reset_state()
 
@@ -68,6 +69,10 @@ def train_bubblesort(epochs, verbose=0):
             for j in range(len(x)):
                 (prog_name, prog_in_id), arg, term = x[j]
                 (_, prog_out_id), arg_out, term_out = y[j]
+
+                print("IN:  ", x[j])
+                print("OUT: ", y[j])
+                print("----------------------------------------")
 
                 # Update Environment if MOVE or WRITE
                 if prog_in_id == MOVE_PTR_PID or prog_in_id == SWAP_ELEM_PID:
